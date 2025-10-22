@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Warp settings
 WARP.md
+
+# Local Netlify folder
+.netlify
