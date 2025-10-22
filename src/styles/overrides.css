@@ -1,1 +1,41 @@
 /* Override styles here */
+
+/* Subgrid styles for Team component */
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.team-content {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1;
+    gap: 1rem;
+}
+
+.team-images {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1;
+    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.team-member {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 1;
+    gap: 1rem;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    overflow: hidden;
+}

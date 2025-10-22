@@ -1,0 +1,52 @@
+---
+import employees from '@data/employees.json';
+import DynamicImage from '@components/helpers/DynamicImage.astro';
+import DynamicIcon from '@components/helpers/DynamicIcon.astro';
+---
+
+<section class="team-grid mt-30 mx-auto px-20 w-full max-w-4xl">
+    <div class="team-content">
+        <h2 class="font-lato text-md text-neutral-800 uppercase">Our Team</h2>
+        <h1 class="text-5xl font-cabin font-bold">
+            We champion the bold to achieve the extraordinary
+        </h1>
+        <p class="text-neutral-800 font-lato text-md leading-6 max-w-lg">
+            Our success stems from the synergy between dedicated teams and our
+            valued clients. We prioritize a company culture that fosters
+            exceptional productivity, ensures customer satisfaction, and
+            promotes mutual respect among all team members.
+        </p>
+    </div>
+    <div class="team-images">
+        {
+            employees.slice(0, 3).map((employee) => (
+                <div class="team-member">
+                    <div class="w-full h-full rounded-2xl overflow-hidden">
+                        <DynamicImage
+                            imagePath={employee.img}
+                            altText={employee.name}
+                            width={200}
+                            height={200}
+                        />
+                        <p class=`font-lato rounded-xl px-2 text-sm absolute place-self-end translate-y-[-40%] translate-x-[-10%] z-10 ${employee.title.toLowerCase().includes('ceo') ? 'bg-amber-300 text-neutral-800' : 'bg-neutral-800 text-neutral-100'}`>
+                            {employee.title}
+                        </p>
+                    </div>
+                    <h3 class="text-neutral-800 font-cabin text-2xl font-bold">
+                        {employee.name}
+                    </h3>
+                    <p class="text-neutral-800 font-lato text-sm hyphens-auto">
+                        {employee.description}
+                    </p>
+                    <div class="flex flex-row gap-2 items-center justify-center">
+                        {employee.social_links.map((link) => (
+                            <a href={link.url} class="text-neutral-800 font-lato text-sm">
+                                <DynamicIcon name={link.icon} class="w-4 h-4" />
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
