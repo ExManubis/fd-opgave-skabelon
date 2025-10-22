@@ -12,6 +12,8 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 ---
 
-<Layout>
+<Layout
+    title={`AskExperts - ${employees.find((employee) => employee.slug === slug)?.name}`}
+>
     <Employee client:load slug={slug} />
 </Layout>
