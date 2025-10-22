@@ -22,7 +22,7 @@ import DynamicIcon from '@components/helpers/DynamicIcon.astro';
         {
             employees.map((employee) => (
                 <div class="team-member">
-                    <a href={`/team/${employee.slug}`} class="block w-fit h-fit hover:opacity-80 transition-all duration-300">
+                    <a href={`/${employee.slug}`} class="block w-fit h-fit hover:opacity-80 transition-all duration-300">
                     <div class="w-full h-full rounded-2xl overflow-hidden">
                         <DynamicImage
                             imagePath={employee.img}

@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Employee from '@components/team/Employee.astro';
+import employees from '@data/employees.json';
+
+export function getStaticPaths() {
+    return employees.map((employee) => ({
+        params: { slug: employee.slug },
+    }));
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout>
+    <Employee client:load slug={slug} />
+</Layout>
