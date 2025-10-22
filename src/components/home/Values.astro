@@ -20,7 +20,7 @@ import DynamicIcon from '@components/helpers/DynamicIcon.astro';
         </div>
         <a
             href=`${coreValuesData.button.link}`
-            class="bg-neutral-50 text-neutral-900 w-fit px-6 py-3 rounded-3xl font-lato font-bold text-xs text-center place-self-end"
+            class="bg-neutral-50 text-neutral-900 hover:text-neutral-50 hover:bg-neutral-900 hover:border-neutral-50 border border-transparent transition-all duration-300 w-fit px-6 py-3 rounded-3xl font-lato font-bold text-xs text-center place-self-end"
         >
             {coreValuesData.button.text}
         </a>
@@ -32,7 +32,7 @@ import DynamicIcon from '@components/helpers/DynamicIcon.astro';
             <DynamicIcon name={value.icon} class="w-10 h-10 text-neutral-100 bg-neutral-800 p-2 rounded-full" />
             <h1 class="font-cabin text-lg font-bold">{value.title}</h1>
             <p class='font-lato text-md'>{value.description}</p>
-                <div class="flex flex-row gap-1">
+                <div class="flex flex-row gap-1 hover:text-amber-400 transition-all duration-300">
                     <a href=`${value.link.url}` class='font-semibold'>{value.link.text}</a>
 
                     <svg width="15" height="17" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
