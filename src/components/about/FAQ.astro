@@ -1,0 +1,61 @@
+---
+import faqData from '@data/faq.json';
+---
+
+<section
+    class="flex flex-col bg-neutral-100 mx-auto max-w-200 my-20 rounded-2xl p-24 justify-center items-center gap-10"
+>
+    <h2 class="font-lato">FAQ</h2>
+    <h1 class="font-cabin text-4xl text-center">Customer Questions</h1>
+    {
+        faqData.faq.map((faqs) => (
+            <details name="a" class="text-left place-self-start w-full">
+                <summary class="font-cabin text-lg font-bold relative pr-8 cursor-pointer">{faqs.question}</summary>
+                <div class="font-lato text-md text-neutral-700 mt-4">{faqs.answer}</div>
+            </details>
+            <div class="h-0.25 w-full bg-neutral-300" />
+        ))
+    }
+</section>
+
+<style>
+/* Override any Tailwind interference with !important */
+details summary {
+  position: relative !important;
+  list-style: none !important;
+}
+
+details summary::-webkit-details-marker {
+  display: none !important;
+}
+
+details summary::marker {
+  content: "" !important;
+}
+
+details summary::before,
+details summary::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 0 !important;
+  width: 1rem !important;
+  height: 2px !important;
+  background-color: #181818 !important;
+  transform-origin: center !important;
+  /* transition: transform 0.2s ease !important; */
+}
+
+details summary::after {
+  transform: translateY(-50%) rotate(90deg) !important;
+}
+
+details summary::before {
+  transform: translateY(-50%) !important;
+}
+
+/* When details is open, rotate the vertical line to horizontal */
+details[open] summary::after {
+  transform: translateY(-50%) rotate(0deg) !important;
+}
+</style>
