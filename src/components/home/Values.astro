@@ -9,8 +9,8 @@ import DynamicIcon from '@components/helpers/DynamicIcon.astro';
     <h2 class="font-lato text-md text-neutral-50 uppercase">
         Growing with our Clients
     </h2>
-    <div class="flex flex-row gap-10 justify-between">
-        <div class="flex flex-col w-[45%]">
+    <div class="flex flex-col md:flex-row gap-10 justify-between">
+        <div class="flex flex-col md:w-[45%]">
             <h1 class="text-neutral-50 font-cabin text-3xl font-bold">
                 {coreValuesData.title}
             </h1>
@@ -20,15 +20,15 @@ import DynamicIcon from '@components/helpers/DynamicIcon.astro';
         </div>
         <a
             href=`${coreValuesData.button.link}`
-            class="bg-neutral-50 text-neutral-900 hover:text-neutral-50 hover:bg-neutral-900 hover:border-neutral-50 border border-transparent transition-all duration-300 w-fit px-6 py-3 rounded-3xl font-lato font-bold text-xs text-center place-self-end"
+            class="bg-neutral-50 text-neutral-900 hover:text-neutral-50 hover:bg-neutral-900 hover:border-neutral-50 border border-transparent transition-all duration-300 w-fit px-6 py-3 rounded-3xl font-lato font-bold text-xs text-center md:place-self-end"
         >
             {coreValuesData.button.text}
         </a>
     </div>
-    <section class="flex flex-row gap-10">
+    <section class="flex flex-row gap-10 overflow-x-auto overflow-y-hidden scrollbar-hide">
         {
             coreValuesData.values.map((value) => (
-                <div class="flex flex-col bg-neutral-200 p-4 rounded-xl w-64 gap-2 h-fit">
+                <div class="flex flex-col basis-auto flex-shrink-0 md:flex-shrink-1 bg-neutral-200 p-4 rounded-xl w-64 gap-2 h-fit">
             <DynamicIcon name={value.icon} class="w-10 h-10 text-neutral-100 bg-neutral-800 p-2 rounded-full" />
             <h1 class="font-cabin text-lg font-bold">{value.title}</h1>
             <p class='font-lato text-md'>{value.description}</p>
