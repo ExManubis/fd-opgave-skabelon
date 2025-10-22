@@ -1,25 +1,96 @@
 ---
+
 ---
-<header class="w-[100%] h-16 bg-neutral-800 text-white flex justify-between items-center px-5 md:px-40 z-50 fixed">
+
+<header
+    class="w-[100%] h-16 bg-neutral-800 text-white flex justify-between items-center px-5 md:px-40 z-50 fixed"
+>
     <a href="/index" class="font-cabin text-2xl">AskExperts</a>
     <nav class="gap-5 hidden md:flex">
-        <a href="/index" class="font-lato hover:text-amber-300 transition-all duration-300">Home</a>
-        <a href="/cases" class="font-lato hover:text-amber-300 transition-all duration-300">Case Study</a>
-        <a href="/team" class="font-lato hover:text-amber-300 transition-all duration-300">Team</a>
-        <a href="/about" class="font-lato hover:text-amber-300 transition-all duration-300">About</a>
+        <a
+            href="/index"
+            class="font-lato hover:text-amber-300 transition-all duration-300"
+            >Home</a
+        >
+        <a
+            href="/cases"
+            class="font-lato hover:text-amber-300 transition-all duration-300"
+            >Case Study</a
+        >
+        <a
+            href="/team"
+            class="font-lato hover:text-amber-300 transition-all duration-300"
+            >Team</a
+        >
+        <a
+            href="/about"
+            class="font-lato hover:text-amber-300 transition-all duration-300"
+            >About</a
+        >
     </nav>
-    <button class="bg-amber-300 text-neutral-800 hover:bg-amber-400 transition-all duration-300 px-4 py-0.5 rounded-xl font-lato hidden md:block">Login</button>
-    <button id="menu-button" class="flex flex-col gap-1.5 text-neutral-800 py-0.5 rounded-xl font-lato block md:hidden">
-        <div class="w-10 h-1 bg-amber-300" ></div>
+    <button
+        id="login-button"
+        class="bg-amber-300 text-neutral-800 hover:bg-amber-400 transition-all duration-300 px-4 py-0.5 rounded-xl font-lato hidden md:block"
+        >Login</button
+    >
+    <button
+        id="menu-button"
+        class="flex flex-col gap-1.5 text-neutral-800 py-0.5 rounded-xl font-lato block md:hidden"
+    >
+        <div class="w-10 h-1 bg-amber-300"></div>
         <div class="w-8 h-1 bg-amber-300"></div>
         <div class="w-10 h-1 bg-amber-300"></div>
     </button>
-    <nav class="hidden nav flex flex-col items-center gap-5 absolute top-16 left-0 w-full h-screen bg-neutral-800 text-white p-5 md:hidden z-50">
+    <nav
+        class="hidden nav flex flex-col items-center gap-5 absolute top-16 left-0 w-full h-screen bg-neutral-800 text-white p-5 md:hidden z-50"
+    >
         <a href="/index" class="font-lato text-2xl">Home</a>
         <a href="/cases" class="font-lato text-2xl">Case Study</a>
         <a href="/team" class="font-lato text-2xl">Team</a>
         <a href="/about" class="font-lato text-2xl">About</a>
     </nav>
+    <div
+        id="login-overlay"
+        class="hidden absolute top-0 left-0 w-lvw h-lvh bg-neutral-800/50 backdrop-blur-lg z-40 flex flex-col justify-center items-center"
+    >
+        <form
+            action="#"
+            class="w-full max-w-md flex flex-col justify-center items-center bg-neutral-900 p-10 rounded-lg"
+        >
+            <h2
+                class="text-2xl font-cabin text-white text-center font-bold mb-5"
+            >
+                Dashboard Login
+            </h2>
+            <div class="flex flex-col gap-2 w-[60%]">
+                <label for="email" class="text-sm font-lato text-white"
+                    >Email address</label
+                >
+                <input
+                    type="email"
+                    id="email"
+                    class="bg-neutral-50 w-full p-2 py-3 text-neutral-800 font-lato text-sm"
+                    placeholder=""
+                />
+            </div>
+            <div class="flex flex-col gap-2 mt-5 mb-5 w-[60%]">
+                <label for="password" class="text-sm font-lato text-white"
+                    >Password</label
+                >
+                <input
+                    type="password"
+                    id="password"
+                    class="bg-neutral-50 w-full p-2 py-3 text-neutral-800 font-lato text-sm"
+                    placeholder="Password"
+                />
+            </div>
+            <button
+                type="submit"
+                class="bg-amber-300 hover:bg-amber-400 transition-all duration-300 text-neutral-800 px-4 py-1.5 rounded-3xl font-lato text-sm font-semibold justify-center items-center"
+                >Go to Dashboard</button
+            >
+        </form>
+    </div>
 </header>
 
 <script>
@@ -27,5 +98,13 @@
     const nav = document.querySelector('.nav');
     menuButton?.addEventListener('click', () => {
         nav?.classList.toggle('hidden');
+    });
+    const loginButton = document.getElementById('login-button');
+    const loginOverlay = document.getElementById('login-overlay');
+    loginButton?.addEventListener('click', () => {
+        loginOverlay?.classList.toggle('hidden');
+    });
+    loginOverlay?.addEventListener('click', () => {
+        loginOverlay?.classList.add('hidden');
     });
 </script>
