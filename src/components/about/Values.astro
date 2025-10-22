@@ -1,0 +1,46 @@
+---
+import coreValuesData from '@data/coreValues.json';
+import DynamicIcon from '@components/helpers/DynamicIcon.astro';
+---
+
+<section
+    class="bg-neutral-100 flex flex-col py-20 px-4 md:px-20 lg:px-20 gap-10"
+>
+    <h2 class="font-lato text-md text-neutral-800 uppercase">
+        Growing with our Clients
+    </h2>
+    <div class="flex flex-row gap-10 justify-between">
+        <div class="flex flex-col w-[45%]">
+            <h1 class="text-neutral-800 font-cabin text-3xl font-bold">
+                {coreValuesData.title}
+            </h1>
+            <p class="text-neutral-800 font-lato text-md">
+                {coreValuesData.subtitle}
+            </p>
+        </div>
+        <a
+            href=`${coreValuesData.button.link}`
+            class="bg-neutral-800 text-neutral-100 w-fit px-6 py-3 rounded-3xl font-lato font-bold text-xs text-center place-self-end"
+        >
+            {coreValuesData.button.text}
+        </a>
+    </div>
+    <section class="flex flex-row gap-10">
+        {
+            coreValuesData.values.map((value) => (
+                <div class="flex flex-col bg-neutral-50 border border-neutral-200 p-4 rounded-xl w-64 gap-2 h-fit">
+            <DynamicIcon name={value.icon} class="w-10 h-10 text-neutral-100 bg-neutral-800 p-2 rounded-full" />
+            <h1 class="font-cabin text-lg font-bold">{value.title}</h1>
+            <p class='font-lato text-md'>{value.description}</p>
+                <div class="flex flex-row gap-1">
+                    <a href=`${value.link.url}` class='font-semibold'>{value.link.text}</a>
+
+                    <svg width="15" height="17" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.68262 10.8491H22.8341M22.8341 10.8491L14.1812 2.19629M22.8341 10.8491L14.1812 19.5021" stroke="currentcolor" stroke-width="3.23715" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            ))
+        }
+    </section>
+</section>
