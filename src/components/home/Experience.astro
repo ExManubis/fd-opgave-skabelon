@@ -2,34 +2,36 @@
 import experienceData from '@data/experience.json';
 ---
 
-<section class="bg-amber-300 flex flex-col py-20 px-4 md:px-20 lg:px-20 gap-5">
-    <h1 class="font-lato text-md uppercase">Experience</h1>
-    <section class="flex flex-row gap-10">
-        <div class="flex flex-col w-[35%]">
-            <h2 class="font-cabin text-2xl font-bold">
-                {experienceData.heading}
-            </h2>
-            <h3 class="font-lato text-lg">{experienceData.subheading}</h3>
-        </div>
-        <div class="flex flex-col w-[65%] gap-8">
-            <div class="stats" scroll-trigger>
-                {
-                    experienceData.stats.map((stat) => (
-                        <div
-                            class="stat flex flex-col items-center gap-2"
-                            style={`--percent: ${stat.value}`}
-                        >
-                            <div class="text-center">
-                                <h3 class="font-cabin text-lg font-medium text-gray-800 translate-y-[50px] justify-center">
-                                    {stat.label}
-                                </h3>
-                            </div>
-                        </div>
-                    ))
-                }
+<section class="bg-amber-300 flex flex-col py-30 px-4 md:px-20 lg:px-20 gap-5">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="font-lato text-md uppercase">Experience</h1>
+        <section class="flex flex-row gap-10">
+            <div class="flex flex-col w-[35%]">
+                <h2 class="font-cabin text-2xl font-bold">
+                    {experienceData.heading}
+                </h2>
+                <h3 class="font-lato text-lg">{experienceData.subheading}</h3>
             </div>
-        </div>
-    </section>
+            <div class="flex flex-col w-[65%] gap-8">
+                <div class="stats" scroll-trigger>
+                    {
+                        experienceData.stats.map((stat) => (
+                            <div
+                                class="stat flex flex-col items-center gap-2"
+                                style={`--percent: ${stat.value}`}
+                            >
+                                <div class="text-center">
+                                    <h3 class="font-cabin text-lg font-medium text-gray-800 translate-y-[50px] justify-center">
+                                        {stat.label}
+                                    </h3>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
 </section>
 
 <style>
