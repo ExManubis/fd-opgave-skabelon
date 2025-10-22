@@ -1,23 +1,15 @@
 ---
-import { Image } from 'astro:assets';
+import DynamicImage from '@components/helpers/DynamicImage.astro';
 import caseStudy from '@data/caseStudy.json';
-const { image } = caseStudy.caseDetails;
+const image = caseStudy.caseDetails.image;
 const { caseName, category, date, buttonLabel } = caseStudy.caseDetails;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-    '/src/data/images/*.{jpeg,jpg,png,gif,webp}',
-);
-if (!images[image]) {
-    throw new Error(
-        `"${image}" does not exist in glob: "/src/data/images/*.{jpeg,jpg,png,gif,webp}"`,
-    );
-}
 ---
 
 <section class="relative">
     <div class="mx-50 my-20 rounded-xl">
-        <Image
-            src={images[image]()}
-            alt="Live Preview"
+        <DynamicImage
+            imagePath={image}
+            altText="Live Preview"
             class="rounded-2xl object-cover"
         />
     </div>
@@ -63,11 +55,9 @@ if (!images[image]) {
                         ))}
                 </ul>
                 {section.image && (
-                    <Image
-                        src={section.image ?? ''}
-                        alt={section.title ?? ''}
-                        width={1000}
-                        height={1000}
+                    <DynamicImage
+                        imagePath={section.image}
+                        altText={section.title}
                     />
                 )}
             </section>
